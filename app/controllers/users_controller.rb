@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token  # jc add this line
-  
+
   # GET /users or /users.json
   def index
     @users = User.all
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @microposts = Micropost.all
   end
 
   # GET /users/new
